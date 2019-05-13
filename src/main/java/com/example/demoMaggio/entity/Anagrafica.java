@@ -9,9 +9,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
+@NamedQueries({
+	@NamedQuery(name="Anagrafica.findAll",query="select a from Anagrafica a order by a.cognome"),
+	@NamedQuery(name="Anagrafica.byCogn",query="select a from Anagrafica a where a.cognome like :cogn"),
+	})
 @Table(name="t_anagrafica")
 public class Anagrafica  implements Serializable {
 
